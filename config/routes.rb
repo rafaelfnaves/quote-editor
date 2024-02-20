@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   
   get 'pages/home'
   devise_for :users
-  
-  resources :quotes
+
+  resources :quotes do
+    resources :line_item_dates, except: [:index, :show]
+  end
 end
